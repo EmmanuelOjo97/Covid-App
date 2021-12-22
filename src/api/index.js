@@ -28,8 +28,41 @@ export const chartData = async () => {
       date: dailyData.reportDate,
     }));
     return modifiedData;
-    // return data;
   } catch (error) {
     console.log(error);
   }
+};
+
+export const countryList = async () => {
+  const {
+    data: { countries },
+  } = await axios.get(`${url}/countries`);
+
+  const countryName = countries.map((name) => ({
+    name: name.name,
+  }));
+  // console.log(countries);
+  // console.log(countryName);
+  return countries;
+};
+
+export const fetchCountryData = async (country) => {
+  if (country === "Afghanistan") {
+    const {
+      data: { confirmed, deaths },
+    } = await axios.get(`${url}/countries/Afghanistan`);
+    const countryInformation = {
+      confirmed: confirmed,
+      deaths: deaths,
+    };
+  }
+  const {
+    data: { confirmed, deaths },
+  } = await axios.get(`${url}/countries/${country}`);
+  const countryInformation = {
+    confirmed: confirmed,
+    deaths: deaths,
+  };
+  console.log(countryInformation);
+  return countryInformation;
 };
