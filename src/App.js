@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import styles from "./App.module.css";
+import { Card, Chart, Dropdown } from "./components";
+import { getData } from "./api";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  state = {
+    data: {},
+    time: 0,
+  };
+
+  async componentDidMount() {
+    const covidData = await getData();
+    this.setState({ data: covidData, time: covidData.confirmed.value });
+  }
+
+  render() {
+    const { data } = this.state;
+    return (
+      <div className={styles.container}>
+        <Card data={data} />
+        {/* <Dropdown /> */}
+        <Chart />
+      </div>
+    );
+  }
 }
-
-export default App;
