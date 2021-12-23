@@ -20,6 +20,7 @@ export default class App extends Component {
     if (changeCountry === "Global") {
       const global = await getData();
       console.log(global);
+      this.setState({ compareCountry: global, country: "Global" });
     } else {
       const fetchData = await fetchCountryData(changeCountry);
       this.setState({ compareCountry: fetchData, country: changeCountry });
@@ -33,7 +34,7 @@ export default class App extends Component {
         <Card data={data} />
         <Dropdown handleCountryChange={this.handleCountryChange} />
         <div className={styles.barBaby}>
-          <Bar compareCountry={compareCountry} />
+          <Bar compareCountry={compareCountry} data={data} country={country} />
         </div>
         <Chart />
       </div>

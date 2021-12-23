@@ -52,7 +52,7 @@ function ChartFunc() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>
-        Coivd Cases from January 2020 to Feburary 2021{" "}
+        Covid Cases from January 2020 to Feburary 2021{" "}
       </h1>
       <div className={styles.periodSelect}>
         <input

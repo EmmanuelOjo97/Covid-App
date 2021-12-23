@@ -55,7 +55,7 @@ function Cards({ data: { confirmed, deaths, lastUpdate } }) {
               >
                 <CountUp
                   end={confirmed.value}
-                  duration={4}
+                  duration={2}
                   start={confirmed.value / 2}
                   separator=","
                 />
@@ -80,7 +80,7 @@ function Cards({ data: { confirmed, deaths, lastUpdate } }) {
                 >
                   <CountUp
                     end={deaths.value}
-                    duration={3}
+                    duration={2}
                     start={deaths.value / 2}
                     separator=","
                   />
