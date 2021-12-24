@@ -5,8 +5,6 @@ import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 
-// ChartJS.register(ArcElement, Tooltip, Legend);
-
 function ChartFunc() {
   const [dailyCovidData, setDailyCovidData] = useState([]);
   const [slicedData, setSlicedData] = useState([]);
@@ -20,12 +18,9 @@ function ChartFunc() {
     fetchData();
   }, []);
 
-  const timerrs = [50, 100, 150, 200, 300, 379];
-
   const changePeriod = (time) => {
     setDailyCovidData(slicedData.slice(0, time));
     setPeriodInput(time);
-    // setDailyCovidData(slicedData);
   };
 
   const data = {

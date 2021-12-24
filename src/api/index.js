@@ -41,8 +41,6 @@ export const countryList = async () => {
   const countryName = countries.map((name) => ({
     name: name.name,
   }));
-  // console.log(countries);
-  // console.log(countryName);
   return countries;
 };
 

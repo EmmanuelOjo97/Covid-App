@@ -1,59 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { countryData } from "../../api";
+import React from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
-import styles from "./Bar.module.css";
 import CountUp from "react-countup";
 
 function BarChart({ compareCountry: { confirmed, deaths }, data, country }) {
-  const [picker, setPicker] = useState("");
-  const [countryCases, setCountryCases] = useState([]);
-
-  useEffect(() => {
-    console.log(data);
-  }, []);
-
-  const labels = ["Cases", "Deaths"];
-
-  //   const BarChar = confirmed ? (
-  //     <Bar
-  //       data={
-  //         ({
-  //           label: "Confirmed Cases",
-  //           data: confirmed.value,
-  //           backgroundColor: "rgba(255, 99, 132, 0.5)",
-  //         },
-  //         {
-  //           label: "Confirmed Deaths",
-  //           data: deaths.value,
-  //           backgroundColor: "rgba(53, 162, 235, 0.5)",
-  //         })
-  //       }
-  //     />
-  //   ) : null;
-
-  //   const barData = {
-  //       if(confirmed){}
-  //     labels,
-  //     datasets: [
-  //       {
-  //         label: "Confirmed Cases",
-  //         data: confirmed.value,
-  //         backgroundColor: "rgba(255, 99, 132, 0.5)",
-  //       },
-  //       {
-  //         label: "Confirmed Deaths",
-  //         data: deaths.value,
-  //         backgroundColor: "rgba(53, 162, 235, 0.5)",
-  //       },
-  //     ],
-  //   };
-
-  const barChar = confirmed ? (
+  const countryBarChart = confirmed ? (
     <Bar
       data={{
-        labels: ["Infected"],
+        labels: ["Cases And Deaths"],
         datasets: [
           {
             label: ["Confirmed Cases"],
@@ -61,7 +16,7 @@ function BarChart({ compareCountry: { confirmed, deaths }, data, country }) {
             data: [confirmed.value],
           },
           {
-            label: ["Deaths Deaths"],
+            label: ["Confirmed Deaths"],
             backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(255, 0, 0, 0.5)"],
             data: [deaths.value],
           },
@@ -76,7 +31,6 @@ function BarChart({ compareCountry: { confirmed, deaths }, data, country }) {
 
   return (
     <div>
-      {/* <h1>{country} </h1> */}
       {confirmed ? (
         <h1>
           Confirmed Coivd Cases in {country}:{" "}
@@ -105,7 +59,7 @@ function BarChart({ compareCountry: { confirmed, deaths }, data, country }) {
           {((confirmed.value / data.confirmed.value) * 100).toFixed(2)}%
         </h1>
       ) : null}
-      {barChar}
+      {countryBarChart}
     </div>
   );
 }

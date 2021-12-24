@@ -1,5 +1,4 @@
 body {
-  /* background-color: rgb(250, 250, 250); */
   background-color: #fefdfb;
 }
 
@@ -14,7 +13,5 @@ body {
 .barBaby {
   justify-content: center;
   width: 90%;
-  /* margin-top: 5%; */
   text-align: center;
-  /* background-color: red; */
 }
