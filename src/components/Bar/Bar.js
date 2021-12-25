@@ -44,7 +44,7 @@ function BarChart({ compareCountry: { confirmed, deaths }, data, country }) {
       ) : null}
       {deaths ? (
         <h1>
-          Confirmed Coivd Cases in {country}:{" "}
+          Confirmed Coivd Deaths in {country}:{" "}
           <CountUp
             end={deaths.value}
             duration={1}
