@@ -1,2 +1,2 @@
-App is deployed here [Click me] (https://confident-booth-097556.netlify.app/)
+App is deployed here [Click me] (https://confident-booth-097556.netlify.app/).
 
